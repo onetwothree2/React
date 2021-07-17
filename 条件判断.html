@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>条件判断</title>
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script crossorigin src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+<body>
+    <div class="app"></div>
+    <script type="text/babel">
+        // 定义两个组件（登入组件 登出组件） 使用函数的方式定义
+        // 登入组件
+        function Login(){
+            return <button>Login</button>
+        }
+        // 登出组件
+        function Logout(){
+            return <button>Logout</button>
+        }
+
+         class App extends React.Component{
+            // constructor(){
+            //     console.log('初始化阶段');
+            //     // 初始化props
+            //     super(props);
+            //     this.state ={
+            //         isLogin:false;
+            //     }
+            // }
+
+            // 初始化状态
+            state = {
+                isLogin:false
+            } 
+            // 箭头函数
+            updataUser =()=>{
+                console.log(this);
+                this.setState({
+                    isLogin:true
+                })
+            }
+            render(){
+                // 获得状态
+                const isLogin = this.state.isLogin;
+                let button;
+                // 加载组件
+                if(isLogin){
+                    button = '';
+                }else{
+                    button = '';
+                }
+                console.log('组件加载或者数据更新');
+                return <div>
+                    <h1> hell</h1>
+                    {button}
+                    <button onClick={this.updataUser}>更新数据</button>
+                </div>
+            }
+             
+         }
+
+         ReactDOM.render(
+             <App/>
+             ,document.getElementById('app')
+         );
+    </script>
+</body>
+</html>
